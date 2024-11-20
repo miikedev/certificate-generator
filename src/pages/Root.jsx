@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom'
 const Root = () => {
   return (
-    <div>
-        <main>
+    <>
+        <main className='max-w-[360px] mx-auto'>
             <Outlet />
         </main>
-    </div>
+    </>
   )
 }
 
