@@ -7,7 +7,7 @@ const Certificate = () => {
     const navigate = useNavigate()
   return (
     <>
-        <div className='mt-[100px] h-[640px] flex flex-col justify-between'>
+        <div className='lg:mt-[100px] h-[640px] flex flex-col justify-between'>
         <Button onClick={() => navigate('/')} variant="outline" size="icon" className="float-left rounded-full">
             <img src={BackArrow} alt="" className=' w-4 text-black'/>
         </Button>
