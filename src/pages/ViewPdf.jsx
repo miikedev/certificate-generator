@@ -10,7 +10,7 @@ const ViewPdf = () => {
   console.log(location);
   return (
     <>
-        <BackButton url="/certificate" />
+        <BackButton url="/certificate" state={location.state} />
         <div className='h-full flex flex-col justify-center'>
             <div className='h-2/3'>
             <p className='text-yellow-500 text-xs z-10 relative top-[8.4rem] left-[5.5rem] font-semibold w-[10rem] text-center'>{location.state.amount}သိန်းကျပ််</p>

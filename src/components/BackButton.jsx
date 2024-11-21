@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
 
-export default function BackButton({url}) {
+export default function BackButton({url,state}) {
   const navigate = useNavigate()
-
+  console.log(state)
   const handleBack = () => {
-    navigate(url) // This navigates to the previous route
+    navigate(url,{state}) // This navigates to the previous route
   }
 
   return (
