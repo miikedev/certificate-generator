@@ -6,8 +6,21 @@ import BackButton from '@/components/BackButton'
 const Certificate = () => {
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location.state.name)
-    console.log(location.state.amount)
+
+    const now = new Date();  
+
+    const options = {  
+        weekday: 'short',  
+        year: 'numeric',  
+        month: 'long',  
+        day: 'numeric',  
+        hour: 'numeric',  
+        minute: 'numeric',  
+        hour12: true, // To get the PM/AM format  
+    };  
+
+    const formattedDateTime = now.toLocaleString('en-US', options);  
+
   return (
     <>
         <div className='h-[640px] flex flex-col justify-between'>
@@ -17,7 +30,7 @@ const Certificate = () => {
             <div className='mt-[20px] text-center'>
                 <h1 className='font-semibold text-[20px] leading-5  mb-2'>Congratulations!</h1>
                 <p className='text-[14px]'>You donated Successfully.<br/>You can check your certificate.</p>
-                <strong className='text-xs'>Fri, October 4, 6:00 PM</strong>
+                <strong className='text-xs'>{formattedDateTime}</strong>
             </div>
             </div>
             <div className='flex flex-col gap-y-[10px]'>

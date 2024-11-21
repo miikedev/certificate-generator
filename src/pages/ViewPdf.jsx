@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom'
 
 const ViewPdf = () => {
   const location = useLocation();
-  console.log(location);
   return (
     <>
         <BackButton url="/certificate" state={location.state} />
