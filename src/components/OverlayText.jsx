@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from "prop-types";
 import { motion } from "framer-motion"
 const OverlayText = ({name,amount}) => {
     const now = new Date();  
@@ -18,5 +18,9 @@ const OverlayText = ({name,amount}) => {
     </div>
   )
 }
+OverlayText.propTypes = {  
+    name: PropTypes.string,  
+    amount: PropTypes.number,
+}; 
 
 export default OverlayText

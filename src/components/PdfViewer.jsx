@@ -1,4 +1,5 @@
 import {motion} from 'framer-motion'
+import PropTypes from 'prop-types'
 const PdfViewer = ({pdfFile}) => {
   return (
     <div className='w-full'>
@@ -7,6 +8,9 @@ const PdfViewer = ({pdfFile}) => {
         {/* <iframe src={pdfFile} className='mx-auto'></iframe> */}
     </div>
   )
+}
+PdfViewer.propTypes = {
+  pdfFile: PropTypes.string.isRequired,
 }
 
 export default PdfViewer

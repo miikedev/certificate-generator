@@ -2,7 +2,8 @@ import CorrectSvg from '../assets/correct.svg'
 import { Button } from '@/components/ui/button'
 import { useNavigate, useLocation } from 'react-router-dom'
 import BackButton from '@/components/BackButton'
-
+import { Helmet } from 'react-helmet'
+import CustomHelmet from '@/components/CustomHelmet'
 const Certificate = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -23,6 +24,11 @@ const Certificate = () => {
 
   return (
     <>
+        <CustomHelmet   
+            title="Congratulations! - Your Donation Matters"   
+            description="Thank you for your donation! You can view or download your donation certificate here."  
+            keywords="donation, certificate, thank you"  
+        /> 
         <div className='h-[640px] flex flex-col justify-between'>
             <BackButton url="/"/>
             <div>
@@ -34,7 +40,7 @@ const Certificate = () => {
             </div>
             </div>
             <div className='flex flex-col gap-y-[10px]'>
-                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full" onClick={() => navigate('/certificate/view',{state:{name:location.state.name,amount:location.state.amount}})}>View & download certificate</Button>
+                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full" onClick={() => navigate('/certificate/view',{state:{name:location.state.name,amount:location.state.amount}})}>View certificate</Button>
                 <Button className="text-[#006EFF] hover:bg-transparent bg-transparent shadow-none" onClick={() => navigate('/')}>Donate again</Button>
             </div>
         </div>

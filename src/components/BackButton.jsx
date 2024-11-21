@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react'
 
 export default function BackButton({url,state}) {
   const navigate = useNavigate()
-  console.log(state)
+
   const handleBack = () => {
     navigate(url,{state}) // This navigates to the previous route
   }
