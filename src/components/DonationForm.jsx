@@ -58,8 +58,8 @@ export default function DonationForm() {
         ),
       })
     }, 1000)
-    navigate('/certificate')
-
+    console.log(values)
+    navigate('/certificate',{state: {name: values.username, amount: values.amount}})
   }
 
   return (

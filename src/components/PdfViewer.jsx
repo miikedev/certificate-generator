@@ -1,9 +1,11 @@
 import React from 'react'
 
+import CertGraphicOne from '../assets/cert-graphic-1.svg'
+
 const PdfViewer = ({pdfFile}) => {
   return (
     <div className='w-full'>
-        <iframe src={pdfFile} className='mx-auto'></iframe>
+      <img src={CertGraphicOne} alt="" />
     </div>
   )
 }

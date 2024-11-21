@@ -1,11 +1,13 @@
-import React from 'react'
 import CorrectSvg from '../assets/correct.svg'
-import BackArrow from '../assets/back-arrow.svg'
 import { Button } from '@/components/ui/button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import BackButton from '@/components/BackButton'
+
 const Certificate = () => {
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location.state.name)
+    console.log(location.state.amount)
   return (
     <>
         <div className='h-[640px] flex flex-col justify-between'>
@@ -19,7 +21,7 @@ const Certificate = () => {
             </div>
             </div>
             <div className='flex flex-col gap-y-[10px]'>
-                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full" onClick={() => navigate('/certificate/view')}>View & download certificate</Button>
+                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full" onClick={() => navigate('/certificate/view',{state:{name:location.state.name,amount:location.state.amount}})}>View & download certificate</Button>
                 <Button className="text-[#006EFF] hover:bg-transparent bg-transparent shadow-none" onClick={() => navigate('/')}>Donate again</Button>
             </div>
         </div>
