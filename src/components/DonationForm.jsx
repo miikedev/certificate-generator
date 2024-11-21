@@ -4,7 +4,10 @@ import { useState } from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
+import NameSvg from '../assets/name-input.svg'
+import AmountSvg from '../assets/amount.svg'
+import NugpaySvg from '../assets/nugpay.svg'
+import SdbSvg from '../assets/sdb.svg'
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -21,13 +24,20 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from '@/hooks/use-toast'
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  username: z.string().min(4, {
+    message: "Username must be at least 4 characters.",
   }),
-  amount: z.coerce.number().min(1, {
-    message: "Amount must be at least 1.",
-  }),
-  paymentMethod: z.enum(["creditCard", "paypal"], {
+  amount: z.string().refine(
+    (val) => {
+      const num = parseFloat(val)
+
+      return !isNaN(num) && num > 0 && /^(?!0\d)\d*(\.\d{1,2})?$/.test(val)
+    },
+    {
+      message: "Amount must be a positive number with up to 2 decimal places and no leading zeros",
+    }
+  ),
+  paymentMethod: z.enum(["sdb", "nug-pay"], {
     required_error: "You need to select a payment method.",
   }),
 })
@@ -39,7 +49,6 @@ export default function DonationForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
-      amount: 0,
       paymentMethod: undefined,
     },
   })
@@ -71,8 +80,9 @@ export default function DonationForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-[.9rem]">Username</FormLabel>
+              <img src={NameSvg} alt="user icon"className='relative top-8 left-3'/>
               <FormControl>
-                <Input placeholder="Enter your username" {...field} />
+                <Input placeholder="Enter your username" className="pl-10 placeholder:left-1 placeholder:relative" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
@@ -87,8 +97,9 @@ export default function DonationForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-[.9rem]">Donation Amount</FormLabel>
+              <img src={AmountSvg} alt="user icon"className='relative top-[2.4rem] left-2'/>
               <FormControl>
-                <Input type="number" placeholder="Enter amount" {...field} />
+                <Input type="number" placeholder="Enter amount" className="pl-10 placeholder:left-1 placeholder:relative" {...field} min/>
               </FormControl>
               <FormDescription>
                 Enter the amount you wish to donate.
@@ -110,19 +121,25 @@ export default function DonationForm() {
                   className="flex flex-col space-y-1"
                 >
                   <FormItem className="flex items-center space-x-3 space-y-0 justify-between">
-                    <FormLabel className="font-normal">
-                      SDB
+                    <FormLabel className="font-normal cursor-pointer flex-grow">
+                      <div className='flex items-center'>
+                      <img src={SdbSvg} alt="sdb icon" />
+                       <span className='relative left-[.4rem]'>SDB</span>
+                      </div>
                     </FormLabel>
                     <FormControl>
-                      <RadioGroupItem value="creditCard" className="outline-blue-600" />
+                      <RadioGroupItem value="sdb" className="outline-blue-600" />
                     </FormControl>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0 justify-between">
-                    <FormLabel className="font-normal">
-                      NUG Pay
+                    <FormLabel htmlFor="nug-pay" className="font-normal cursor-pointer flex-grow">
+                      <div className='flex items-center'>
+                      <img src={NugpaySvg} alt="nugpay icon" className='relative right-1'/>
+                        NUG Pay
+                      </div>
                     </FormLabel>
                     <FormControl>
-                      <RadioGroupItem value="paypal" className="outline-blue-600" />
+                      <RadioGroupItem value="nug-pay" id="nug-pay" className="outline-blue-600" />
                     </FormControl>
                   </FormItem>
                 </RadioGroup>

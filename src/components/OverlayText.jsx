@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion"
 const OverlayText = ({name,amount}) => {
     const now = new Date();  
-
     // Format the date as DD.MM.YYYY  
     const day = String(now.getDate()).padStart(2, '0'); // Ensure two digits  
     const month = String(now.getMonth() + 1).padStart(2, '0'); // Add 1 since months are zero-indexed  
