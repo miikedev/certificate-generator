@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useNavigate } from 'react-router-dom'
+import { toast } from '@/hooks/use-toast'
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -48,14 +49,14 @@ export default function DonationForm() {
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false)
-    //   toast({
-    //     title: "Donation Received",
-    //     description: (
-    //       <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //         <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-    //       </pre>
-    //     ),
-    //   })
+      toast({
+        title: "Donation Received",
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+          </pre>
+        ),
+      })
     }, 1000)
     navigate('/certificate')
 
@@ -69,7 +70,7 @@ export default function DonationForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel className="text-[.9rem]">Username</FormLabel>
               <FormControl>
                 <Input placeholder="Enter your username" {...field} />
               </FormControl>
@@ -85,7 +86,7 @@ export default function DonationForm() {
           name="amount"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Donation Amount</FormLabel>
+              <FormLabel className="text-[.9rem]">Donation Amount</FormLabel>
               <FormControl>
                 <Input type="number" placeholder="Enter amount" {...field} />
               </FormControl>
@@ -108,21 +109,21 @@ export default function DonationForm() {
                   defaultValue={field.value}
                   className="flex flex-col space-y-1"
                 >
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="creditCard" />
-                    </FormControl>
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between">
                     <FormLabel className="font-normal">
-                      Credit Card
+                      SDB
                     </FormLabel>
+                    <FormControl>
+                      <RadioGroupItem value="creditCard" className="outline-blue-600" />
+                    </FormControl>
                   </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="paypal" />
-                    </FormControl>
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between">
                     <FormLabel className="font-normal">
-                      PayPal
+                      NUG Pay
                     </FormLabel>
+                    <FormControl>
+                      <RadioGroupItem value="paypal" className="outline-blue-600" />
+                    </FormControl>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
