@@ -3,14 +3,13 @@ import CorrectSvg from '../assets/correct.svg'
 import BackArrow from '../assets/back-arrow.svg'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
+import BackButton from '@/components/BackButton'
 const Certificate = () => {
     const navigate = useNavigate()
   return (
     <>
-        <div className='lg:mt-[100px] h-[640px] flex flex-col justify-between'>
-        <Button onClick={() => navigate('/')} variant="outline" size="icon" className="float-left rounded-full">
-            <img src={BackArrow} alt="" className=' w-4 text-black'/>
-        </Button>
+        <div className='h-[640px] flex flex-col justify-between'>
+            <BackButton url="/"/>
             <div>
             <img src={CorrectSvg} alt="" className='mx-auto'/>
             <div className='mt-[20px] text-center'>
@@ -20,8 +19,8 @@ const Certificate = () => {
             </div>
             </div>
             <div className='flex flex-col gap-y-[10px]'>
-                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full">View & download certificate</Button>
-                <Button className="text-[#006EFF] hover:bg-transparent bg-transparent shadow-none">Donate again</Button>
+                <Button className="w-full bg-[#006EFF] hover:bg-[#006EFFDF] rounded-full" onClick={() => navigate('/certificate/view')}>View & download certificate</Button>
+                <Button className="text-[#006EFF] hover:bg-transparent bg-transparent shadow-none" onClick={() => navigate('/')}>Donate again</Button>
             </div>
         </div>
     </>
