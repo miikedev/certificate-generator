@@ -15,7 +15,7 @@ const Home = () => {
       />  
         <div>
           <div className="logo flex justify-center w-full">
-              <img src={Logo} alt="" className='w-[167px]'/>
+              <img src={Logo} alt="" className='w-[167px]' loading='lazy'/>
           </div>
         </div>
         <section className="donate">

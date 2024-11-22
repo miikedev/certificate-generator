@@ -1,13 +1,13 @@
 import BackButton from '@/components/BackButton';  
 import PdfViewer from '@/components/PdfViewer';  
-import OverlayText from '@/components/OverlayText';  
+const OverlayText = lazy(() => import('@/components/OverlayText'))
 import CertPDF from '../assets/cert-graphic-1.svg';  
 import { useLocation, useNavigate } from 'react-router-dom';  
 import CustomHelmet from '@/components/CustomHelmet';  
 import { Button } from '@/components/ui/button';  
 import html2canvas from 'html2canvas';  
 import jsPDF from 'jspdf';  
-
+import { Suspense, lazy } from 'react';
 const ViewPdf = () => {  
     const location = useLocation();  
     const navigate = useNavigate();  
@@ -53,8 +53,10 @@ const ViewPdf = () => {
             <div className='h-full flex flex-col justify-center'>  
                 <div className='h-2/3'>  
                     <div id="pdf-component" style={{ padding: "10px", fontSize: "12px", lineHeight: "1.2", position: 'relative' }}>  
+                        <Suspense fallback={<h2>loading...</h2>}>
                         <PdfViewer pdfFile={CertPDF} />  
                         <OverlayText name={location.state.name} amount={location.state.amount} />  
+                        </Suspense>
                     </div>  
                     <div className="text-center mt-[3.3rem]">  
                         <p>Thank you <strong>{location.state.name}!</strong></p>  
