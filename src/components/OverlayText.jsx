@@ -10,11 +10,11 @@ const OverlayText = ({name,amount}) => {
     const formattedDate = `${day}.${month}.${year}`;  
 
   return (
-    <div>
+    <>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {duration: 1} }} className='text-yellow-500 text-xs z-10 relative bottom-[7.3rem] left-[5.6rem] font-semibold w-[10rem] text-center'>{amount}ကျပ််</motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {duration: 1} }} className='text-yellow-500 text-xs z-10 relative bottom-[6rem] left-[5.6rem] font-semibold w-[10rem] text-center'>{name}</motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {duration: 1} }} className='text-yellow-500 bg-white text-xs z-10 relative bottom-[15rem] left-[14.6rem] font-semibold w-[5.3rem] text-center'><small className='text-black text-[.36rem]'>နေ့စွဲ -</small><small>{formattedDate}</small></motion.div>
-    </div>
+    </>
   )
 }
 OverlayText.propTypes = {  

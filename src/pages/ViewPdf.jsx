@@ -52,7 +52,7 @@ const ViewPdf = () => {
             <BackButton url="/certificate" state={location.state} />  
             <div className='h-full flex flex-col justify-center'>  
                 <div className='h-2/3'>  
-                    <div id="pdf-component" style={{ padding: "10px", fontSize: "12px", lineHeight: "1.2" }}>  
+                    <div id="pdf-component" style={{ padding: "10px", fontSize: "12px", lineHeight: "1.2", position: 'relative' }}>  
                         <PdfViewer pdfFile={CertPDF} />  
                         <OverlayText name={location.state.name} amount={location.state.amount} />  
                     </div>  
