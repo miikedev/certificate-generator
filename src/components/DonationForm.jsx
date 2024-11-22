@@ -112,7 +112,7 @@ export default function DonationForm() {
           name="paymentMethod"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <FormLabel>Payment Method</FormLabel>
+              <FormLabel className="font-semibold mb-4 text-[18px]">Payment Method</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}

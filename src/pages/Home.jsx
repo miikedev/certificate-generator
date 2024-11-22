@@ -1,28 +1,29 @@
+import React, { lazy, Suspense } from 'react'
 import CustomHelmet from '@/components/CustomHelmet'
-import DonationForm from '@/components/DonationForm'
-import { Button } from '@/components/ui/button'
-import React, {lazy} from 'react'
-
+import Spinner from '@/components/Spinner'
 import Logo from '../assets/cert-gen-logo.svg'
+
+const DonationForm = lazy(() => import('@/components/DonationForm'))
 
 const Home = () => {
   return (
     <>
-    <CustomHelmet   
+      <CustomHelmet   
         title="Support Us - Make a Donation"   
         description="Help us make a difference! Your donation supports our projects and initiatives."   
         keywords="donation, charity, support"  
       />  
-        <div>
-          <div className="logo flex justify-center w-full">
-              <img src={Logo} alt="" className='' width={200} height={200}/>
-          </div>
+      <div className="flex flex-col items-center">
+        <div className="logo w-full flex justify-center">
+          <img src={Logo} alt="Certificate Generator Logo" className="max-w-xs" />
         </div>
-        <section className="donate">
-            <h2>Donation</h2>
+        <section className="donate w-full max-w-md">
+          <h2 className="font-semibold text-[18px]">Donation</h2>
+          <Suspense fallback={<Spinner />}>
             <DonationForm />
+          </Suspense>
         </section>
-        <section className="payment-options"></section>
+      </div>
     </>
   )
 }
