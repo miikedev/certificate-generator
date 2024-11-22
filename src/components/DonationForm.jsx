@@ -78,9 +78,9 @@ export default function DonationForm() {
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="relative">
               <FormLabel className="text-[.9rem]">Username</FormLabel>
-              <img src={NameSvg} alt="user icon"className='relative top-8 left-3'/>
+              <img src={NameSvg} alt="user icon"className='absolute bottom-[2.4rem] left-[.7rem]'/>
               <FormControl>
                 <Input placeholder="Enter your username" className="pl-10 placeholder:left-1 placeholder:relative" {...field} />
               </FormControl>
@@ -95,9 +95,9 @@ export default function DonationForm() {
           control={form.control}
           name="amount"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="relative">
               <FormLabel className="text-[.9rem]">Donation Amount</FormLabel>
-              <img src={AmountSvg} alt="user icon"className='relative top-[2.4rem] left-2'/>
+              <img src={AmountSvg} alt="user icon"className='absolute bottom-[2.05rem] left-[.5rem]'/>
               <FormControl>
                 <Input type="number" placeholder="Enter amount" className="pl-10 placeholder:left-1 placeholder:relative" {...field} min/>
               </FormControl>
