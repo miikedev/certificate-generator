@@ -1,7 +1,7 @@
 import CustomHelmet from '@/components/CustomHelmet'
 import DonationForm from '@/components/DonationForm'
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, {lazy} from 'react'
 
 import Logo from '../assets/cert-gen-logo.svg'
 
@@ -15,7 +15,7 @@ const Home = () => {
       />  
         <div>
           <div className="logo flex justify-center w-full">
-              <img src={Logo} alt="" className='w-[167px]' loading='lazy'/>
+              <img src={Logo} alt="" className='' width={200} height={200}/>
           </div>
         </div>
         <section className="donate">

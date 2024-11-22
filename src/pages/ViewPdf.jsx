@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import BackButton from '@/components/BackButton';  
 import PdfViewer from '@/components/PdfViewer';  
 const OverlayText = lazy(() => import('@/components/OverlayText'))
@@ -7,7 +8,6 @@ import CustomHelmet from '@/components/CustomHelmet';
 import { Button } from '@/components/ui/button';  
 import html2canvas from 'html2canvas';  
 import jsPDF from 'jspdf';  
-import { Suspense, lazy } from 'react';
 const ViewPdf = () => {  
     const location = useLocation();  
     const navigate = useNavigate();  
