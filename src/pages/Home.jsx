@@ -18,8 +18,8 @@ const Home = () => {
           <img src={Logo} alt="Certificate Generator Logo" className="max-w-xs" />
         </div>
         <section className="donate w-full max-w-md">
-          <h2 className="font-semibold text-[18px]">Donation</h2>
           <Suspense fallback={<Spinner />}>
+            <h2 className="font-semibold text-[18px]">Donation</h2>
             <DonationForm />
           </Suspense>
         </section>
