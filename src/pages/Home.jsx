@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import DonationForm from '@/components/DonationForm'
-import Logo from '../assets/cert-gen-logo.png'
+import Logo from '../assets/cert-gen-logo.svg'
 import CustomHelmet from '@/components/CustomHelmet'
 const Home = () => {
   return (
