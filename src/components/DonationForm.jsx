@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import NameSvg from '../assets/name-input.svg'
-import AmountSvg from '../assets/amount.svg'
 import NugpaySvg from '../assets/nugpay.svg'
 import SdbSvg from '../assets/sdb.svg'
 import { Button } from "@/components/ui/button"
+import UserIcon from './icons/UserIcon'
+import AmountIcon from './icons/AmountIcon' 
 import {
   Form,
   FormControl,
@@ -66,7 +66,7 @@ export default function DonationForm() {
           </pre>
         ),
       })
-    }, 1000)
+    }, 2000)
     console.log(values)
     navigate('/certificate',{state: {name: values.username, amount: values.amount}})
   }
@@ -80,9 +80,8 @@ export default function DonationForm() {
           render={({ field }) => (
             <FormItem className="relative">
               <FormLabel className="text-[.9rem]">Username</FormLabel>
-              <img src={NameSvg} alt="user icon"className='absolute bottom-[2.4rem] left-[.7rem]'/>
               <FormControl>
-                <Input placeholder="Enter your username" className="pl-10 placeholder:left-1 placeholder:relative" {...field} />
+                <Input icon={<UserIcon />} placeholder="Enter your username" className="pl-10 placeholder:left-1 placeholder:relative" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
@@ -97,9 +96,8 @@ export default function DonationForm() {
           render={({ field }) => (
             <FormItem className="relative">
               <FormLabel className="text-[.9rem]">Donation Amount</FormLabel>
-              <img src={AmountSvg} alt="user icon"className='absolute bottom-[2.05rem] left-[.5rem]'/>
               <FormControl>
-                <Input type="number" placeholder="Enter amount" className="pl-10 placeholder:left-1 placeholder:relative" {...field} min/>
+                <Input icon={<AmountIcon />} type="number" placeholder="Enter amount" className="pl-10 placeholder:left-1 placeholder:relative" {...field} min/>
               </FormControl>
               <FormDescription>
                 Enter the amount you wish to donate.
@@ -124,7 +122,7 @@ export default function DonationForm() {
                     <FormLabel className="font-normal cursor-pointer flex-grow">
                       <div className='flex items-center'>
                       <img src={SdbSvg} alt="sdb icon" />
-                       <span className='relative left-[.4rem]'>SDB</span>
+                       <span className='block relative left-[.4rem]'>SDB</span>
                       </div>
                     </FormLabel>
                     <FormControl>
@@ -134,7 +132,7 @@ export default function DonationForm() {
                   <FormItem className="flex items-center space-x-3 space-y-0 justify-between">
                     <FormLabel htmlFor="nug-pay" className="font-normal cursor-pointer flex-grow">
                       <div className='flex items-center'>
-                      <img src={NugpaySvg} alt="nugpay icon" className='relative right-1'/>
+                      <img src={NugpaySvg} alt="nugpay icon" className='block relative right-1'/>
                         NUG Pay
                       </div>
                     </FormLabel>
