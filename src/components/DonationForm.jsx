@@ -72,6 +72,7 @@ export default function DonationForm() {
   }
 
   return (
+    <>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -151,5 +152,6 @@ export default function DonationForm() {
         </Button>
       </form>
     </Form>
+    </>
   )
 }
